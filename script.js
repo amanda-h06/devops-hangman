@@ -309,6 +309,8 @@ function gameWon() {
     
     statusMsg.textContent = `🎉 ${winnerName} won! The word was: ${gameState.currentWord}`;
     statusDiv.classList.add('show', 'winner');
+
+    gameState.currentPlayer = gameState.currentPlayer === 1 ? 2 : 1;
 }
 
 function gameLost() {
