@@ -156,6 +156,33 @@ function startGame() {
     nextRound();
 }
 
+function resetGame() {
+    if (!confirm('Reset the game and clear scores?')) {
+        return;
+    }
+    gameState.player1.score = 0;
+    gameState.player2.score = 0;
+    gameState.currentPlayer = 1;
+    gameState.gameActive = false;
+    gameState.guessedLetters = [];
+    gameState.wrongGuesses = 0;
+    gameState.currentWord = '';
+
+    document.getElementById('score1').textContent = '0';
+    document.getElementById('score2').textContent = '0';
+    document.getElementById('wordDisplay').textContent = '_ _ _ _ _';
+    document.getElementById('wrongLetters').textContent = 'None yet';
+    document.getElementById('livesLeft').textContent = '6';
+
+    resetHangman();
+    resetKeyboard();
+    updateCurrentPlayer();
+
+    const statusDiv = document.getElementById('gameStatus');
+    statusDiv.classList.remove('show', 'winner', 'loser');
+    statusDiv.className = 'game-status';
+}
+
 function nextRound() {
     if (wordBank.length === 0) {
         alert('No words in the word bank! Add some words first.');
