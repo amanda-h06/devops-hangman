@@ -134,6 +134,11 @@ body {
     margin-bottom: 30px;
 }
 
+.game-actions {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 .player-score {
     flex: 1;
     background: #667eea;
